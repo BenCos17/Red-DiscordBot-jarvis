@@ -238,7 +238,9 @@ class Red(
         self._main_dir = bot_dir
         self._cog_mgr = CogManager()
         self._use_team_features = cli_flags.use_team_features
-        super().__init__(*args, help_command=None, tree_cls=RedTree, **kwargs) chunk_guilds_at_startup=False
+
+        super().__init__(*args, help_command=None, tree_cls=RedTree, **kwargs, chunk_guilds_at_startup=False)
+
         #disabled guild chunking?
 
 
