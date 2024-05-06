@@ -58,9 +58,9 @@
 </p>
 
 
-#This is for my bot J.A.R.V.I.S 
+# This is for my bot J.A.R.V.I.S 
 
-#for the official bot code go to https://github.com/Cog-Creators/Red-DiscordBot
+# for the official bot code go to https://github.com/Cog-Creators/Red-DiscordBot
  
 # Overview
 
