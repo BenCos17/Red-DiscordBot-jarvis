@@ -438,7 +438,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. [Join us today]({}) "
                 "and help us improve!\n\n"
-                "(c) Cog Creators"
+                "(c) Cog Creators \n\n modfied by bencos18" #add me in info page
             ).format(red_repo, author_repo, contributors_url, support_server_url)
 
             embed = discord.Embed(color=(await ctx.embed_colour()))
@@ -475,8 +475,8 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "created by Twentysix (2) and improved by many (3).\n\n"
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. Join us today (4) "
-                "and help us improve!\n\n"
-                "(c) Cog Creators"
+                "and help us improve!\n\n" 
+                "(c) Cog Creators modfied by bencos18" #add me in info page
             )
             about = box(about)
 
@@ -545,6 +545,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 python_url,
                 dpy_repo,
                 red_pypi,
+                
             )
             await ctx.send(refs)
 
