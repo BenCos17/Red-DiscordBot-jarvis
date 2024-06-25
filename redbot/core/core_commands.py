@@ -5904,3 +5904,51 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         )
         await ctx.send(message)
         # We need a link which contains a thank you to other projects which we use at some point.
+        
+        
+        
+    @commands.command()
+    async def credits(self, ctx):
+        """Credits for everyone that have helped to make this bot possible."""
+        repo_cog = self.bot.get_cog("Downloader")
+        if not repo_cog:
+            return await ctx.send("My owner needs to load another plugin before I can continue.")
+        embed = discord.Embed(
+            title=f"{self.bot.user.name}'s Code Credits",
+            # description=f"",
+            timestamp=self.bot.user.created_at,
+        )
+        embed.set_footer(text=f"{self.bot.user.name}'s birthday is")
+        embed.set_thumbnail(url=ctx.me.avatar_url)
+        embed.add_field(
+            name="\N{ZERO WIDTH SPACE}",
+            value=f"{self.bot.user.name} is an instance of [Red Bot](https://github.com/Cog-Creators/Red-DiscordBot), "
+            "created by [Twentysix](https://github.com/Twentysix26) and improved by [many]"
+            "(https://github.com/Cog-Creators/Red-DiscordBot/graphs/contributors).",
+            inline=False,
+        )
+        # embed.add_field(
+        # name="\N{ZERO WIDTH SPACE}",
+        # value="cat info",
+        # inline=False,
+        # )
+        used_repos = {c.repo_name for c in await repo_cog.installed_cogs()}
+        cogs_credits = [
+            f"[{repo.url.split('/')[4]}]({repo.url}): {', '.join(repo.author) or repo.url.split('/')[-2]}"
+            for repo in repo_cog._repo_manager.repos
+            if repo.url.startswith("http") and repo.name in used_repos
+        ]
+
+        cogs_credits = list(set(cogs_credits))
+        cogs_credits = sorted(cogs_credits, key=lambda x: x[1].lower())
+        cogs_credits = "\n".join(cogs_credits)
+        cogs_credits = list(pagify(cogs_credits, page_length=1024))
+        embed.add_field(
+            name="Third-party modules and their creators",
+            value=cogs_credits[0],
+            inline=False,
+        )
+        cogs_credits.pop(0)
+        for page in cogs_credits:
+            embed.add_field(name="\N{ZERO WIDTH SPACE}", value=page, inline=False)
+        await ctx.send(embed=embed)
