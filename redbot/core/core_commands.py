@@ -5919,7 +5919,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
             timestamp=self.bot.user.created_at,
         )
         embed.set_footer(text=f"{self.bot.user.name}'s birthday is")
-        embed.set_thumbnail(url=ctx.me.avatar_url)
+        embed.set_thumbnail(url=ctx.me.avatar.url)
         embed.add_field(
             name="\N{ZERO WIDTH SPACE}",
             value=f"{self.bot.user.name} is an instance of [Red Bot](https://github.com/Cog-Creators/Red-DiscordBot), "
@@ -5929,7 +5929,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         )
         # embed.add_field(
         # name="\N{ZERO WIDTH SPACE}",
-        # value="cat info",
+        # value="jarvis info",  thanks Aki and Fixator 
         # inline=False,
         # )
         used_repos = {c.repo_name for c in await repo_cog.installed_cogs()}
