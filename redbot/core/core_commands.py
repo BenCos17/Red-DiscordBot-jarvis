@@ -478,7 +478,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "creates content for everyone to enjoy. Join us today (4) "
                 "and help us improve!\n\n" 
                 "(c) Cog Creators modified by bencos18\n\n"
-                "donate (8) "
+                "donate (8)"
             )
             about = box(about)
 
