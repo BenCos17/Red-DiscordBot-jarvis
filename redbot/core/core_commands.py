@@ -476,8 +476,9 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. Join us today (4) "
                 "and help us improve!\n\n" 
-                "(c) Cog Creators modified by bencos18"
-                "https://www.paypal.com/paypalme/JARVISDISCORDBOT\n\n"
+                "(c) Cog Creators modified by bencos18\n\n"
+                "test"
+                
             )
             about = box(about)
 
