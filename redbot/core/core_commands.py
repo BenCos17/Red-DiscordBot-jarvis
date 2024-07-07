@@ -414,6 +414,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         support_server_url = "https://discord.gg/red"
         dpy_repo = "https://github.com/Rapptz/discord.py"
         python_url = "https://www.python.org/"
+        donate_paypal = "https://www.paypal.com/paypalme/JARVISDISCORDBOT"
         since = datetime.datetime(2016, 1, 2, 0, 0)
         days_since = (datetime.datetime.utcnow() - since).days
 
@@ -476,7 +477,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. Join us today (4) "
                 "and help us improve!\n\n" 
-                "(c) Cog Creators modified by bencos18\n\n [donate](https://www.paypal.com/paypalme/JARVISDISCORDBOT)"
+                "(c) Cog Creators modified by bencos18\n\n" "donate (8) "
             )
             about = box(about)
 
@@ -537,6 +538,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "5. <{}>\n"
                 "6. <{}>\n"
                 "7. <{}>\n"
+                "8. <{}>\n"
             ).format(
                 red_repo,
                 author_repo,
@@ -544,8 +546,8 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 support_server_url,
                 python_url,
                 dpy_repo,
-                red_pypi,
-                
+                red_pypi,   
+                donate_paypal,             
             )
             await ctx.send(refs)
 
