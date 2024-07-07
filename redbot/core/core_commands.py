@@ -478,7 +478,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "creates content for everyone to enjoy. Join us today (4) "
                 "and help us improve!\n\n" 
                 "(c) Cog Creators modified by bencos18\n\n"
-                "donate (8)\n\n"
+                "donate (donate_paypal)\n\n"
             )
             about = box(about)
 
@@ -539,7 +539,6 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "5. <{}>\n"
                 "6. <{}>\n"
                 "7. <{}>\n"
-                "8. <{}>\n"
             ).format(
                 red_repo,
                 author_repo,
