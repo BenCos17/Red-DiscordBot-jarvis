@@ -239,12 +239,12 @@ class Red(
         self._cog_mgr = CogManager()
         self._use_team_features = cli_flags.use_team_features
 
-        super().__init__(*args, help_command=None, tree_cls=RedTree, **kwargs, chunk_guilds_at_startup=False)
+        super().__init__(
+            *args, help_command=None, tree_cls=RedTree, **kwargs, chunk_guilds_at_startup=False
+        )
 
-        #disabled guild chunking?
+        # disabled guild chunking?
 
-
-        
         # Do not manually use the help formatter attribute here, see `send_help_for`,
         # for a documented API. The internals of this object are still subject to change.
         self._help_formatter = commands.help.RedHelpFormatter()

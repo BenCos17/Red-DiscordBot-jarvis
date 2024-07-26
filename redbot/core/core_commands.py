@@ -438,7 +438,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. [Join us today]({}) "
                 "and help us improve!\n\n"
-                "(c) Cog Creators \n\n modified by bencos18" #add me in info page
+                "(c) Cog Creators \n\n modified by bencos18"  # add me in info page
             ).format(red_repo, author_repo, contributors_url, support_server_url)
 
             embed = discord.Embed(color=(await ctx.embed_colour()))
@@ -475,10 +475,8 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "created by Twentysix (2) and improved by many (3).\n\n"
                 "Red is backed by a passionate community who contributes and "
                 "creates content for everyone to enjoy. Join us today (4) "
-                "and help us improve!\n\n" 
+                "and help us improve!\n\n"
                 "(c) Cog Creators [donate](https://www.paypal.com/paypalme/JARVISDISCORDBOT) modified by bencos18\n\n"
-                
-                
             )
             about = box(about)
 
@@ -547,7 +545,6 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 python_url,
                 dpy_repo,
                 red_pypi,
-                
             )
             await ctx.send(refs)
 
@@ -5956,9 +5953,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         )
         await ctx.send(message)
         # We need a link which contains a thank you to other projects which we use at some point.
-        
-        
-        
+
     @commands.command()
     async def credits(self, ctx):
         """Credits for everyone that have helped to make this bot possible."""
@@ -5981,7 +5976,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         )
         # embed.add_field(
         # name="\N{ZERO WIDTH SPACE}",
-        # value="jarvis info",  thanks Aki and Fixator 
+        # value="jarvis info",  thanks Aki and Fixator
         # inline=False,
         # )
         used_repos = {c.repo_name for c in await repo_cog.installed_cogs()}
