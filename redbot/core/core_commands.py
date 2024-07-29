@@ -416,7 +416,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         python_url = "https://www.python.org/"
         since = datetime.datetime(2016, 1, 2, 0, 0)
         days_since = (datetime.datetime.utcnow() - since).days
-        donate = "https://paypal.me/JARVISDISCORDBOT"
+        donate_url = "https://paypal.me/JARVISDISCORDBOT"
 
         app_info = await self.bot.application_info()
         if app_info.team:
@@ -441,7 +441,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "and help us improve!\n\n"
                 "(c) Cog Creators \n\n modified by bencos18"  # add me in info page
                 "[donate]{}"
-            ).format(red_repo, author_repo, contributors_url, support_server_url, "donate")
+            ).format(red_repo, author_repo, contributors_url, support_server_url, "donate_url")
 
             embed = discord.Embed(color=(await ctx.embed_colour()))
             embed.add_field(
