@@ -547,7 +547,6 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 python_url,
                 dpy_repo,
                 red_pypi,
-                donate,
             )
             await ctx.send(refs)
 
