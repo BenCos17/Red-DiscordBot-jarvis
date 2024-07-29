@@ -439,8 +439,8 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "creates content for everyone to enjoy. [Join us today]({}) "
                 "and help us improve!\n\n"
                 "(c) Cog Creators \n\n modified by bencos18"  # add me in info page
-                "[donate]{https://paypal.me/JARVISDISCORDBOT}"
-            ).format(red_repo, author_repo, contributors_url, support_server_url)
+                "[donate]{}"
+            ).format(red_repo, author_repo, contributors_url, support_server_url, "https://paypal.me/JARVISDISCORDBOT")
 
             embed = discord.Embed(color=(await ctx.embed_colour()))
             embed.add_field(
