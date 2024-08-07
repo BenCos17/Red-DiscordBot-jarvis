@@ -31,9 +31,36 @@ class PlayerControllerCommands(MixinMeta, metaclass=CompositeMetaClass):
     async def command_disconnect(self, ctx: commands.Context):
         """Disconnect from the voice channel."""
 
-        # Check if the user is in a voice channel.
-        if ctx.author.voice is None:
+        player = lavalink.get_player(ctx.guild.id)
+
+        # Check if the voice channel is empty except for the bot.
+        if ctx.guild.me.voice and len(ctx.guild.me.voice.channel.members) == 1:
+            await self.send_embed_msg(ctx, title=_("Disconnecting..."))
+            self.bot.dispatch("red_audio_audio_disconnect", ctx.guild)
+            self.update_player_lock(ctx, False)
+            eq = player.fetch("eq")
+            player.queue = []
+            player.store("playing_song", None)
+            player.store("autoplay_notified", False)
+            if eq:
+                await self.config.custom("EQUALIZER", ctx.guild.id).eq_bands.set(eq.bands)
+            await player.stop()
+            await player.disconnect()
+            await self.config.guild_from_id(guild_id=ctx.guild.id).currently_auto_playing_in.set(
+                []
+            )
+            self._ll_guild_updates.discard(ctx.guild.id)
+            await self.api_interface.persistent_queue_api.drop(ctx.guild.id)
+            return await self.send_embed_msg(
+                ctx, title=_("Disconnected from empty voice channel.")
+            )
+
+        # Check if the user is in a voice channel or if the voice channel is empty except for the bot.
+        if ctx.author.voice is None and not (
+            ctx.guild.me.voice and len(ctx.guild.me.voice.channel.members) == 1
+        ):
             return await self.send_embed_msg(ctx, title=_("You are not in a voice channel!"))
+
         if not self._player_check(ctx):
             return await self.send_embed_msg(ctx, title=_("Nothing playing."))
         else:
@@ -41,7 +68,6 @@ class PlayerControllerCommands(MixinMeta, metaclass=CompositeMetaClass):
                 ctx.guild.id, await self.config.guild(ctx.guild).dj_enabled()
             )
             vote_enabled = await self.config.guild(ctx.guild).vote_enabled()
-            player = lavalink.get_player(ctx.guild.id)
             can_skip = await self._can_instaskip(ctx, ctx.author)
             if (
                 (vote_enabled or (vote_enabled and dj_enabled))
@@ -52,6 +78,12 @@ class PlayerControllerCommands(MixinMeta, metaclass=CompositeMetaClass):
                     ctx,
                     title=_("Unable To Disconnect"),
                     description=_("There are other people listening - vote to skip instead."),
+                )
+            if dj_enabled and not vote_enabled and not can_skip:
+                return await self.send_embed_msg(
+                    ctx,
+                    title=_("Unable To Disconnect"),
+                    description=_("You need the DJ role to disconnect."),
                 )
             if dj_enabled and not can_skip:
                 return await self.send_embed_msg(
