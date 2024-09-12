@@ -439,7 +439,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "creates content for everyone to enjoy. [Join us today]({}) "
                 "and help us improve!\n\n"
                 "(c) Cog Creators \n\n modified by bencos18"  # add me in info page
-                
+                "[donate]{}"
             ).format(
                 red_repo,
                 author_repo,
