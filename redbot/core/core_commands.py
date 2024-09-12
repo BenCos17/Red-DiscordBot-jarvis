@@ -439,13 +439,14 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "creates content for everyone to enjoy. [Join us today]({}) "
                 "and help us improve!\n\n"
                 "(c) Cog Creators \n\n modified by bencos18 \n\n"  # add me in info page
-                "{} " "{} "
+                "{} "
+                "{} "
             ).format(
                 red_repo,
                 author_repo,
                 contributors_url,
                 support_server_url,
-                "[donate](https://paypal.me/JARVISDISCORDBOT)", 
+                "[donate](https://paypal.me/JARVISDISCORDBOT)",
                 "  [bot support](https://discord.gg/WW4eNQj9qr)",
             )
 
