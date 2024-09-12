@@ -440,7 +440,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 "and help us improve!\n\n"
                 "(c) Cog Creators \n\n modified by bencos18 \n\n"  # add me in info page
                 "{} "
-                "{} "
+                "{} "  # add extra spaces for custom stuff
             ).format(
                 red_repo,
                 author_repo,
