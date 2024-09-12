@@ -445,7 +445,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
                 author_repo,
                 contributors_url,
                 support_server_url,
-                "https://paypal.me/JARVISDISCORDBOT",
+                "[donate](https://paypal.me/JARVISDISCORDBOT)",
             )
 
             embed = discord.Embed(color=(await ctx.embed_colour()))
