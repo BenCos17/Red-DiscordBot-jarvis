@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 from typing import Tuple, Union, Iterable, Collection, Optional, Dict, Set, List, cast
 from collections import defaultdict
+import time
 
 import discord
 from redbot.core import commands, Config, version_info as red_version_info
@@ -1228,6 +1229,8 @@ class Downloader(commands.Cog):
         failed_repos = set()
         updates_available = set()
 
+        start_time = time.time()  # Add this line to record the start time
+
         async with ctx.typing():
             # this is enough to be sure that `rev` is not None (based on calls to this method)
             if repo is not None:
@@ -1320,6 +1323,12 @@ class Downloader(commands.Cog):
                         else _("\nThis cog is pinned and therefore wasn't checked: ")
                     ) + humanize_list(tuple(map(inline, cognames)))
                 message += filter_message
+
+        end_time = time.time()  # Add this line to record the end time
+        update_duration = end_time - start_time  # Calculate the duration
+
+        # Add the duration to the message
+        message += _("\nUpdate completed in {:.2f} seconds.").format(update_duration)
 
         if failed_repos:
             message += "\n" + self.format_failed_repos(failed_repos)
