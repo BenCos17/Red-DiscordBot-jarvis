@@ -1229,7 +1229,7 @@ class Downloader(commands.Cog):
         failed_repos = set()
         updates_available = set()
 
-        start_time = time.time()  # Add this line to record the start time
+        start_time = time.time()  # Start timing
 
         async with ctx.typing():
             # this is enough to be sure that `rev` is not None (based on calls to this method)
@@ -1324,11 +1324,10 @@ class Downloader(commands.Cog):
                     ) + humanize_list(tuple(map(inline, cognames)))
                 message += filter_message
 
-        end_time = time.time()  # Add this line to record the end time
-        update_duration = end_time - start_time  # Calculate the duration
+        end_time = time.time()  # End timing
+        update_duration = end_time - start_time
 
-        # Add the duration to the message
-        message += _("\nUpdate completed in {:.2f} seconds.").format(update_duration)
+        message += _("\nUpdate process completed in {:.2f} seconds.").format(update_duration)
 
         if failed_repos:
             message += "\n" + self.format_failed_repos(failed_repos)
