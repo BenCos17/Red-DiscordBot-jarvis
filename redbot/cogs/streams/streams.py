@@ -319,7 +319,9 @@ class Streams(commands.Cog):
             discord.TextChannel, discord.VoiceChannel, discord.StageChannel
         ] = commands.CurrentChannel,
     ):
-        """Manage Twitch stream notifications."""
+        """Manage Twitch stream notifications. 
+        Do not use the format 'discord_channel = name'.
+        """
         await ctx.invoke(self.twitch_alert_channel, channel_name, discord_channel)
 
     @_twitch.command(name="channel")
