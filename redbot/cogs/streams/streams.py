@@ -331,7 +331,12 @@ class Streams(commands.Cog):
             discord.TextChannel, discord.VoiceChannel, discord.StageChannel
         ] = commands.CurrentChannel,
     ):
-        """Toggle alerts in this or the given channel for a Twitch stream."""
+        """
+        Toggle alerts for a Twitch stream in this or the specified Discord channel.
+
+        Note: Provide the Twitch channel name or ID directly. 
+        Do not use the format 'discord_channel = name'.
+        """
         if re.fullmatch(r"<#\d+>", channel_name):
             await ctx.send(
                 _("Please supply the name of a *Twitch* channel, not a Discord channel.")
