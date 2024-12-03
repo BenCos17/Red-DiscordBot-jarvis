@@ -319,8 +319,8 @@ class Streams(commands.Cog):
             discord.TextChannel, discord.VoiceChannel, discord.StageChannel
         ] = commands.CurrentChannel,
     ):
-        """Manage Twitch stream notifications. 
-        Do not use the format 'discord_channel = name'.
+        """Manage Twitch stream notifications.
+        Do not use the format 'discord_channel = name' only enter the channel name eg #twitch or the channel id.
         """
         await ctx.invoke(self.twitch_alert_channel, channel_name, discord_channel)
 
@@ -336,8 +336,8 @@ class Streams(commands.Cog):
         """
         Toggle alerts for a Twitch stream in this or the specified Discord channel.
 
-        Note: Provide the Twitch channel name or ID directly. 
-        Do not use the format 'discord_channel = name'.
+        Note: Provide the Twitch channel name or ID directly.
+        Do not use the format 'discord_channel = name'only enter the channel name eg #twitch or the channel id.
         """
         if re.fullmatch(r"<#\d+>", channel_name):
             await ctx.send(
