@@ -3333,7 +3333,7 @@ class Core(commands.commands._RuleDropper, commands.Cog, CoreLogic):
         """Set server's admin and mod roles for [botname]."""
 
     @_set_roles.command(name="addadminrole")
-    @commands.admin_or_permissions()
+    @commands.admin_or_permissions(administrator=True)
     @commands.guild_only()
     async def _set_roles_addadminrole(self, ctx: commands.Context, *, role: discord.Role):
         """
