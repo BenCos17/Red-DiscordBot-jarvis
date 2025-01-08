@@ -55,7 +55,7 @@ _ = Translator("commands.converter", __file__)
 # this is going to be accepted by everything in their API but nope... Let's assume 2 ** 63 - 1 as the max instead.
 ID_REGEX = re.compile(r"([0-9]{15,19})")
 USER_MENTION_REGEX = re.compile(r"<@!?([0-9]{15,19})>$")
-_MAX_ID = 2**63 - 1
+_MAX_ID = 2 ** 63 - 1
 
 
 # Taken with permission from
